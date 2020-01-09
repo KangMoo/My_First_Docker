@@ -6,3 +6,4 @@ COPY replicaSet.js .
 # COPY setup.sh .
 
 CMD ["mongo", "mongodb://mongo1:27017", "./replicaSet.js"]
+# CMD ["./setup.sh"]

@@ -1,15 +1,10 @@
 version: '3'
 services:
-    mysql1:
-        image: mysql:5.7
+    mymongo:
+        image: mongo
+        environment:    # 환경변수를 정의합니다.
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: abc123
         ports:
-            - "13306:3306"
-        environment: 
-            - MYSQL_ALLOW_EMPTY_PASSWORD=true
-    mysql-data:
-        build: .
-        ports:
-            - "23306:3306"
-        environment: 
-            - MYSQL_ALLOW_EMPTY_PASSWORD=true
-
+            - 27017:27017
+        

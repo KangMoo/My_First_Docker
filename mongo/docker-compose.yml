@@ -1,46 +1,46 @@
-version: "3"
+version: '3'
 services:
     mongo1:
         image: "mongo"
         ports:
             - "27017:27017"
-        volumes: 
+        volumes:
             - $HOME/mongoRepl/mongo1:/data/db
         networks:
             - mongo-networks
-        command: mongod --replSet myapp
-            
+        command: mongod --replSet myapp --bind_ip_all
+
     mongo2:
         image: "mongo"
         ports:
             - "27018:27017"
-        volumes: 
+        volumes:
             - $HOME/mongoRepl/mongo2:/data/db
         networks:
             - mongo-networks
-        command: mongod --replSet myapp
-        depends_on: 
+        depends_on:
             - mongo1
+        command: mongod --replSet myapp --bind_ip_all
 
     mongo3:
         image: "mongo"
         ports:
             - "27019:27017"
-        volumes: 
+        volumes:
             - $HOME/mongoRepl/mongo3:/data/db
         networks:
             - mongo-networks
-        command: mongod --replSet myapp 
-        depends_on: 
+        depends_on:
             - mongo2
-            
+        command: mongod --replSet myapp --bind_ip_all
+
     mongodb_setup:
-        image: "mongo_repl_setup"
-        depends_on: 
+        image: "hkm0629/mongo_repl_setup"
+        depends_on:
             - mongo3
         networks:
             - mongo-networks
-        
-networks: 
+
+networks:
     mongo-networks:
-        driver: bridge        
+        driver: bridge
