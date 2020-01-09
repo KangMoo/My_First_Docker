@@ -1,0 +1,15 @@
+version: '3'
+services:
+    mysql1:
+        image: mysql:5.7
+        ports:
+            - "13306:3306"
+        environment: 
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    mysql-data:
+        build: .
+        ports:
+            - "23306:3306"
+        environment: 
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+
