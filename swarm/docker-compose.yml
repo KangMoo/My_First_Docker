@@ -3,8 +3,6 @@ services:
   registry:
     container_name: registry
     hostname: registry
-    environment:
-        - "PS1="[\u@\h\w]\$ "
     image: registry:latest
     ports: 
       - 5000:5000
@@ -14,8 +12,6 @@ services:
   manager:
     container_name: manager
     hostname: manager
-    environment:
-        - "PS1="[\u@\h\w]\$ "
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -33,8 +29,6 @@ services:
   worker01:
     container_name: worker01
     hostname: worker01
-    environment:
-        - "PS1="[\u@\h\w]\$ "
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -50,8 +44,6 @@ services:
   worker02:
     container_name: worker02
     hostname: worker02
-    environment:
-        - "PS1="[\u@\h\w]\$ "
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -67,8 +59,6 @@ services:
   worker03:
     container_name: work03
     hostname: worker03
-    environment:
-        - "PS1="[\u@\h\w]\$ "
     image: docker:19.03.5-dind
     privileged: true
     tty: true

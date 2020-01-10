@@ -1,0 +1,26 @@
+version: "3"
+services: 
+    api:
+        image: registry:5000/example/echo:latest
+        deploy:
+            replicas: 3
+            placement:
+                constraints: [node.role != manager]
+        networks:
+            - ch03
+    nginx:
+        image: gihyodocker/nginx-proxy:latest
+        deploy:
+            replicas: 3
+            placement:
+                constraints: [node.role != manager]
+        environment:
+            BACKEND_HOST: echo_api:8080
+        networks:
+            - ch03
+        depends_on:
+            - api
+
+networks:
+    ch03:
+        external: true
