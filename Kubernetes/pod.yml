@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: hello-container
-    image: kubetm/hello
+    image: hkm0629/hello
     ports:
     - containerPort: 8000

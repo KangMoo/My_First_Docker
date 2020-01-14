@@ -1,21 +1,27 @@
-
-
 ## simple web using Kubernetes
 
 
 
-**This is for testing simple web using docker**
+## How to build
 
+* pod.yml Build
+  1. `kubectl apply -f *.yml`
 
+* service.yml Build
 
-#### How to build
+  1. Edit IP address
 
-> 1. build image
->    * `$ docker build -t hkm0629/hello:latest .`
+     > ```
+     > externalIPs:
+     > - YourAddress
+     > ```
 
+  2. 
 
+## How to Check
 
-#### How to Check
+1. Go to URL
 
-> 
+   > `http://YourIP:8200`
 
+   
