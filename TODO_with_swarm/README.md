@@ -82,7 +82,21 @@
 
 
 
-#### 3.API
+#### 3.Nginx
+
+1. Go to directory : todo/todongninx
+
+2. Build api image
+
+   > `$ docker build -t localhost:5000/ch04/nginx`
+
+3. Push Image
+
+   > `docker push localhost:5000/ch04/nginx`
+
+   
+
+#### 4.API
 
 1. Go to directory : toto/todoapi
 
@@ -90,7 +104,7 @@
 
    > `$ docker image build -t localhost:5000/ch04/todoapi:latest .`
 
-3. Push & Pull image
+3. Push image
 
    > `$ docker image push localhost:5000/ch04/todoapi:latest`
 
@@ -205,6 +219,16 @@ docker service ps todo_mysql_master `
 * Master/Slave 컨테이너는 두 역할을 모두 수행할 수 있는 하나의 임지리소 생성
 * MYSQL_MASTER 환경변수의 유무에 따라 해당 컨테이너가 마스터로 작동할지가 결정됨
 * replicas 값을 조절해 슬레이브를 늘릴 수 있게 한다. 이때 마스터, 슬레이브 모두 일시정지(다운타임)를 허용한다
+
+
+
+## Nginx 구축
+
+* 클라이언트 요청 -> (8000) Nginx  rexerve proxi (8080) Backend Web service
+* 이점
+  * 접근 로그 생성 (단일 접근)
+  * 캐시 제어
+  * 라우팅 설정
 
 
 
