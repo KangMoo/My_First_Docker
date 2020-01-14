@@ -76,7 +76,7 @@
 
 
 
-#### 3.Nginx
+#### 3.Nginx (app)
 
 1. Go to directory : todo/todongninx
 
@@ -128,13 +128,27 @@
 
 
 
+#### 5.Web
+
+1. Go to directory : todo/todoweb
+
+2. Build Image
+
+   > `$ docker build  -t localhost:5000/ch04/todoweb:latest .`
+
+3. Push Image
+
+   > `$ docker push localhost:5000/ch04/todoweb`
 
 
----
 
 #### Visualizer (Not Necessary)
 
 >`$ docker stack deploy -c /stack/visualizer.yml visualizer`
+
+
+
+---
 
 
 
