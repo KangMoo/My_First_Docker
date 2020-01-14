@@ -2,6 +2,9 @@ version: "3"
 services: 
   registry:
     container_name: registry
+    hostname: registry
+    environment:
+      - "PS1=$$(hostname):$$(pwd) $$ "
     image: registry:latest
     ports: 
       - 5000:5000
@@ -10,6 +13,7 @@ services:
 
   manager:
     container_name: manager
+    hostname: manager
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -25,7 +29,8 @@ services:
       - "./stack:/stack"
 
   worker01:
-    container_name: work01
+    container_name: worker01
+    hostname: worker01
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -39,7 +44,8 @@ services:
     command: "--insecure-registry registry:5000"
 
   worker02:
-    container_name: work02
+    container_name: worker02
+    hostname: worker02
     image: docker:19.03.5-dind
     privileged: true
     tty: true
@@ -53,7 +59,8 @@ services:
     command: "--insecure-registry registry:5000"
 
   worker03:
-    container_name: work03
+    container_name: worker03
+    hostname: worker03
     image: docker:19.03.5-dind
     privileged: true
     tty: true
