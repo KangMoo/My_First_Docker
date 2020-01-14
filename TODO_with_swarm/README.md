@@ -13,12 +13,6 @@
 
 
 
-#### 0.Visualizer (Not Necessary)
-
->`$ docker stack deploy -c /stack/visualizer.yml visualizer`
-
-
-
 #### 1.Make Swarm
 
 1. Need register container, manager container, and 3 worker container
@@ -138,7 +132,7 @@
 
 ---
 
-#### Visualizer
+#### Visualizer (Not Necessary)
 
 >`$ docker stack deploy -c /stack/visualizer.yml visualizer`
 
@@ -249,6 +243,8 @@ docker service ps todo_mysql_master `
       * serveGET -> `$ curl -s -XGET http://localhost:8080/todo?status=PROGRESS`
       * servePOST -> `$ curl -XPOST -d '{ "title": "4장 집필하기", "content":"내용 검토 중}' http://localhost:8000/todo `
       * servePUT -> `$ curl -XPUT -d '{"id:":1,"title":"4장 집필하기","content":"도커를 이용한 실전적 웹 어플개발","status":"PROGRESS"}' http://localhost:8080/todo`
+
+
 
 
 
